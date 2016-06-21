@@ -12,12 +12,16 @@ public class Base64 {
 		commonsCodesBase64();
 		System.out.println("bouncyCastleBase64():");
 		bouncyCastleBase64();
-		
+		jdkBase64();
 	}
 	
 	// Jdk 默认方法加密
 	public static void jdkBase64() {
+		byte[] encodeBytes = java.util.Base64.getEncoder().encode(src.getBytes());
+		System.out.println("jdk base64 encode: " + new String(encodeBytes));
 		
+		byte[] decodeBytes = java.util.Base64.getDecoder().decode(encodeBytes);
+		System.out.println("jdk base64 decode: " + new String(decodeBytes));
 	}
 	
 	// 使用 Commons Codec 
